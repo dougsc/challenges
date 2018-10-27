@@ -2,15 +2,11 @@
   "name": "question2",
   "version": "1.0.0",
   "description": "Gift picker",
-  "main": "index.js",
   "scripts": {
     "gifts": "node index.js",
     "lint": "eslint ./",
     "test": "$npm_package_config_coverageTool mocha --recursive",
     "test:cover": "npm test --$npm_package_name:coverageTool=nyc"
-  },
-  "bin": {
-    "gifts": "./index.js"
   },
   "author": "Doug Clark",
   "license": "ISC",
@@ -21,6 +17,7 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",

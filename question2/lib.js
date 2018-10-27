@@ -11,7 +11,7 @@ function error(message) {
 
 function parseCommandArgs(rawArgs) {
   const usageStr = `
-Usage gifts <product / price file path> <gift card value (cents) [options]
+Usage gifts <product / price file path> <gift card value (cents)> [options]
   
 Options:
   --three          Find three gifts
@@ -33,6 +33,12 @@ Options:
   };
 }
 
+/**
+ * Load product / price data from a CSV file and format it
+ * into an Array of objects
+ * @param {string} filename
+ * @param {function} cb - called with the object Array
+ */
 function loadProductPriceData(filename, cb) {
   const rawData = fs.readFileSync(filename);
   parse(rawData, {
@@ -139,4 +145,6 @@ module.exports = {
   parseCommandArgs,
   loadProductPriceData,
   findProducts,
+  findTwoProducts,
+  findThreeProducts,
 };
