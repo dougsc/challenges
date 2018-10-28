@@ -89,13 +89,18 @@ function findThreeProducts(productData, giftCardValue) {
   let leastChange = giftCardValue;
   let items = null;
 
+  // keep searching while there are:
+  // 1 - still 3 products left in the list
+  // 2 - no exact match for gift card value
   while (productData.length > 2 && leastChange > 0) {
     const thirdProduct = productData.pop();
     const remainingCardValue = giftCardValue - thirdProduct.price;
 
+    // if the third product is less than the card value...
     if (remainingCardValue > 0) {
       const twoProductResult = findTwoProducts(productData, remainingCardValue);
       if (twoProductResult.items && twoProductResult.leastChange < leastChange) {
+        // best combination so far...
         [leastChange, items] = [
           twoProductResult.leastChange,
           twoProductResult.items.concat(thirdProduct),

@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint ./",
-    "test": "$npm_package_config_coverageTool mocha --recursive",
-    "test:cover": "npm test --$npm_package_name:coverageTool=nyc"
+    "test": "mocha --recursive"
   },
   "author": "Doug Clark",
   "license": "ISC",
@@ -18,17 +17,18 @@
     "express-bunyan-logger": "^1.3.3",
     "lodash": "^4.17.11"
   },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  },
   "eslintConfig": {
     "env": {
       "node": true
     },
     "extends": "airbnb-base"
-  },
-  "devDependencies": {
-    "eslint": "^5.8.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0"
   }
 }
