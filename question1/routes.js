@@ -63,6 +63,7 @@ const postMessage = (req, res) => {
 module.exports = () => {
   router.get('/messages/:hash', getMessage);
   router.post('/messages', postMessage);
+  router.get('/', (req, res) => res.send({ message_count: _.size(messages) }));
   router.get('/health', (req, res) => res.send({ healthy: true }));
   return router;
 };
