@@ -19,11 +19,11 @@ curl http://simple-api-519366531.us-east-2.elb.amazonaws.com/messages/9f86d08188
 ```
 
 ## Performance and Scaling
-Performance (specifically throughput of a single replica) could be improved by making the [hash generating call](./routes.js:#L14) asynchronous.  This would allow multiple requests to be handled in parallel (based on the CPU resources available).
+Performance (specifically throughput of a single replica) could be improved by making the [hash generating call](./routes.js#L14) asynchronous.  This would allow multiple requests to be handled in parallel (based on the CPU resources available).
 
 The app currently stores the hash / message pairs in memory.  This does not scale well because:
 
-1. multiple replicas of the app can not be run
+1. multiple replicas of the app can not be run (because the message store is not shared)
 1. the memory required will increases with every unique message posted
 1. if the app re-starts all data will be lost
 
